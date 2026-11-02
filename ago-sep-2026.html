@@ -1,0 +1,1111 @@
+<!doctype html><html lang="es"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Westric · Reporte Ago–Sep 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+/* ─── TOKENS ─── */
+:root {
+  /* Light — layout: single column → 2-col grid sections, stat tiles top */
+  --bg:        #FFFFFF;
+  --bg-soft:   #F2F6FA;
+  --bg-card:   #FFFFFF;
+  --border:    #D4DDE8;
+  --navy:      #002B5B;
+  --blue:      #0055A5;
+  --cyan:      #0091CC;
+  --fg:        #1C2A3A;
+  --muted:     #5B6E81;
+  --green:     #007A4C;
+  --green-bg:  #E6F4EE;
+  --red:       #C0392B;
+  --red-bg:    #FDECEA;
+  --amber:     #B45309;
+  --amber-bg:  #FEF3E2;
+  --cyan-bg:   #E6F3FA;
+  --shadow:    0 1px 4px rgba(0,43,91,.08);
+  --shadow-md: 0 4px 16px rgba(0,43,91,.12);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0D1620;
+    --bg-soft:   #131E2C;
+    --bg-card:   #16212E;
+    --border:    #243548;
+    --navy:      #003E80;
+    --blue:      #1A75CF;
+    --cyan:      #29A8E0;
+    --fg:        #E2ECF5;
+    --muted:     #7A93AC;
+    --green:     #34C985;
+    --green-bg:  #0E2E1F;
+    --red:       #F06A5A;
+    --red-bg:    #2A1111;
+    --amber:     #F0A830;
+    --amber-bg:  #2A1E0A;
+    --cyan-bg:   #0A2030;
+    --shadow:    0 1px 4px rgba(0,0,0,.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #0D1620;
+  --bg-soft:   #131E2C;
+  --bg-card:   #16212E;
+  --border:    #243548;
+  --navy:      #003E80;
+  --blue:      #1A75CF;
+  --cyan:      #29A8E0;
+  --fg:        #E2ECF5;
+  --muted:     #7A93AC;
+  --green:     #34C985;
+  --green-bg:  #0E2E1F;
+  --red:       #F06A5A;
+  --red-bg:    #2A1111;
+  --amber:     #F0A830;
+  --amber-bg:  #2A1E0A;
+  --cyan-bg:   #0A2030;
+  --shadow:    0 1px 4px rgba(0,0,0,.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-inline: 20px;
+  padding-block: 0;
+}
+
+/* ─── LAYOUT ─── */
+.wrap { max-width: 900px; margin: 0 auto; padding-block: 40px 80px; }
+
+/* ─── HEADER ─── */
+.report-header {
+  background: var(--navy);
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 36px 40px 32px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.report-header::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(0,145,204,.15);
+}
+.report-header::after {
+  content: '';
+  position: absolute;
+  right: 40px; bottom: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(0,145,204,.08);
+}
+.header-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 10px;
+}
+.report-header h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.report-header h1 span { color: var(--cyan); }
+.header-sub {
+  color: rgba(255,255,255,.65);
+  font-size: 13.5px;
+  max-width: 520px;
+  line-height: 1.55;
+}
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.header-meta-item .k {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+.header-meta-item .v {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  margin-top: 2px;
+}
+
+/* ─── SECTION ─── */
+.section { margin-bottom: 44px; }
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.section-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--cyan-bg);
+  border: 1px solid rgba(0,145,204,.25);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.section-tag.green { color: var(--green); background: var(--green-bg); border-color: rgba(0,122,76,.25); }
+.section-tag.amber { color: var(--amber); background: var(--amber-bg); border-color: rgba(180,83,9,.25); }
+.section-tag.red   { color: var(--red);   background: var(--red-bg);   border-color: rgba(192,57,43,.25); }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: .01em;
+}
+.section-desc {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+/* ─── STAT TILES ─── */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.tiles-3 { grid-template-columns: repeat(3, 1fr); }
+.tiles-2 { grid-template-columns: repeat(2, 1fr); }
+.tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.tile .t-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.tile .t-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.tile .t-num.accent { color: var(--blue); }
+.tile .t-num.green  { color: var(--green); }
+.tile .t-num.amber  { color: var(--amber); }
+.tile .t-delta {
+  margin-top: 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.tile .t-delta.up   { color: var(--green); }
+.tile .t-delta.down { color: var(--red); }
+.tile .t-delta.neu  { color: var(--muted); }
+.tile .t-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ─── CALLOUT ─── */
+.callout {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+}
+.callout.green { border-left-color: var(--green); }
+.callout.amber { border-left-color: var(--amber); }
+.callout.red   { border-left-color: var(--red); }
+.callout h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.callout p { color: var(--muted); line-height: 1.65; }
+.callout p + p { margin-top: 8px; }
+.callout strong { color: var(--fg); font-weight: 600; }
+
+/* ─── BAR CHART ─── */
+.bar-list { display: flex; flex-direction: column; gap: 10px; }
+.bar-item { display: grid; grid-template-columns: 180px 1fr 90px; align-items: center; gap: 10px; }
+.bar-item .b-label { font-size: 12.5px; color: var(--fg); }
+.bar-track { height: 8px; background: var(--bg-soft); border-radius: 4px; overflow: hidden; min-width: 0; }
+.bar-fill  { height: 100%; border-radius: 4px; }
+.bar-item .b-val { font-size: 11.5px; font-weight: 600; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ─── TABLE ─── */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 560px; }
+table.tbl th {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 10px 12px;
+  text-align: right;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+table.tbl th:first-child { text-align: left; }
+table.tbl td {
+  padding: 10px 12px;
+  text-align: right;
+  border-bottom: 1px solid var(--bg-soft);
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+table.tbl td:first-child { text-align: left; font-weight: 500; }
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tr.total td { background: var(--bg-soft); font-weight: 700; }
+.dl-up   { color: var(--green); font-weight: 600; }
+.dl-down { color: var(--red);   font-weight: 600; }
+.dl-neu  { color: var(--muted); font-weight: 500; }
+
+/* ─── PANEL BOX ─── */
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.panel h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--fg);
+  margin-bottom: 16px;
+}
+.panel h3 small { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 8px; letter-spacing: 0; }
+
+/* ─── VIDEO HIGHLIGHT ─── */
+.video-insight {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  color: #fff;
+}
+.video-insight .vi-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.video-insight .vi-icon {
+  width: 48px; height: 48px;
+  background: var(--cyan);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.video-insight .vi-icon svg { width: 26px; height: 26px; fill: #fff; }
+.video-insight h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.video-insight h2 span { color: var(--cyan); }
+.video-insight .vi-body { color: rgba(255,255,255,.7); font-size: 13.5px; line-height: 1.65; max-width: 700px; }
+.video-insight .vi-body strong { color: #fff; }
+.vi-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.vi-stat {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.vi-stat .k { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+.vi-stat .v { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 700; color: var(--cyan); margin-top: 4px; }
+.vi-stat .s { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+/* ─── TOP CONTENT ─── */
+.content-list { display: flex; flex-direction: column; gap: 8px; }
+.content-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+}
+.content-item .ci-rank {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--muted);
+  width: 22px;
+  text-align: center;
+}
+.content-item .ci-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.content-item .ci-title small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.content-item .ci-views {
+  text-align: right;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.content-item .ci-inter {
+  text-align: right;
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.badge-reel {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--cyan-bg);
+  border: 1px solid rgba(0,145,204,.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+.badge-foto {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ─── DIVIDER ─── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+/* ─── CONCLUSIONES ─── */
+.conclu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.conclu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.conclu-card .cc-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.conclu-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 6px;
+  text-wrap: balance;
+}
+.conclu-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+.conclu-card p strong { color: var(--fg); }
+
+/* ─── PAID OVERVIEW ─── */
+.paid-header {
+  background: linear-gradient(135deg, #002B5B 0%, #004C97 100%);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.paid-header .ph-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: .02em;
+}
+.paid-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.paid-kpi { }
+.paid-kpi .k { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+.paid-kpi .v { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-top: 4px; line-height: 1; }
+.paid-kpi .d { font-size: 11.5px; margin-top: 4px; }
+.paid-kpi .d.up { color: #6EE7B7; }
+.paid-kpi .d.neu { color: rgba(255,255,255,.45); }
+
+/* ─── FOOTER ─── */
+.report-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: .04em;
+}
+.footer-note { font-size: 11px; color: var(--muted); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 680px) {
+  body { padding-inline: 16px; }
+  .wrap { padding-block: 24px 60px; }
+  .report-header { padding: 24px 20px; }
+  .report-header h1 { font-size: 28px; }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .tiles-3 { grid-template-columns: repeat(2, 1fr); }
+  .paid-kpis { grid-template-columns: repeat(2, 1fr); }
+  .vi-stats { grid-template-columns: repeat(2, 1fr); }
+  .conclu-grid { grid-template-columns: 1fr; }
+  .bar-item { grid-template-columns: 130px 1fr 70px; }
+  .content-item { grid-template-columns: auto 1fr auto; }
+  .content-item .ci-inter { display: none; }
+  .header-meta { gap: 16px; }
+}
+</style>
+
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="header-eyebrow">Westric Multicontrol S.A. · Social Media &amp; Paid Media</div>
+  <h1>Reporte de Performance<br><span>Agosto – Septiembre 2026</span></h1>
+  <p class="header-sub">Análisis integral de resultados orgánicos y pauta paga. Período 1 agosto – 7 octubre 2026 para orgánico; 1–30 septiembre para paid media. Fuentes: Meta Business Suite · Google Ads · LinkedIn Ads · GA4.</p>
+  <div class="header-meta">
+    <div class="header-meta-item"><div class="k">Período orgánico</div><div class="v">1 ago – 7 oct 2026</div></div>
+    <div class="header-meta-item"><div class="k">Paid Media</div><div class="v">Septiembre 2026</div></div>
+    <div class="header-meta-item"><div class="k">Canales</div><div class="v">IG · FB · LinkedIn · Google</div></div>
+    <div class="header-meta-item"><div class="k">Elaborado por</div><div class="v">Estrategia de Contenidos</div></div>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────── -->
+<!-- 01 · INSTAGRAM ORGÁNICO -->
+<!-- ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-tag">01</span>
+    <h2 class="section-title">Instagram — Orgánico</h2>
+  </div>
+  <p class="section-desc">@westricargentina · 1 agosto – 7 octubre 2026 · Comparativo vs. período anterior (mayo – julio).</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="t-label">Visualizaciones</div>
+      <div class="t-num accent">505,1 mil</div>
+      <div class="t-delta up">↑ 3,8%</div>
+      <div class="t-sub">Orgánico 43.294 · Ads 460.466</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Espectadores únicos</div>
+      <div class="t-num">125,5 mil</div>
+      <div class="t-delta down">↓ 7,1%</div>
+      <div class="t-sub">Audiencia alcanzada</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Interacciones</div>
+      <div class="t-num green">1.500</div>
+      <div class="t-delta up">↑ 65,8%</div>
+      <div class="t-sub">Likes, comentarios, guardados</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Visitas al perfil</div>
+      <div class="t-num">13,4 mil</div>
+      <div class="t-delta up">↑ 146,8%</div>
+      <div class="t-sub">+6.789 vs. período anterior</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Clics en enlace</div>
+      <div class="t-num">5.500</div>
+      <div class="t-delta up">↑ 26,7%</div>
+      <div class="t-sub">Hacia westric.com</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Seguidores nuevos</div>
+      <div class="t-num green">+487</div>
+      <div class="t-delta up">↑ 19,4%</div>
+      <div class="t-sub">Crecimiento neto</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Orgánico puro</div>
+      <div class="t-num">43.294</div>
+      <div class="t-delta up">↑ 99,9%</div>
+      <div class="t-sub">Sin inversión en pauta</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Interacc. por formato</div>
+      <div class="t-num accent">2 : 1</div>
+      <div class="t-delta neu">Reels vs. Fotos</div>
+      <div class="t-sub">Reels ~300 · Fotos ~150</div>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <h4>Lo que más creció</h4>
+    <p>Las visitas al perfil subieron un <strong>146,8%</strong>: la marca genera interés real, no solo impresiones pasivas. El orgánico puro prácticamente se duplicó (+99,9%), lo que muestra que el contenido empieza a funcionar sin depender únicamente de pauta. Las interacciones crecieron un <strong>65,8%</strong>.</p>
+  </div>
+
+  <div class="panel">
+    <h3>Interacciones por formato <small>Agosto – Septiembre 2026</small></h3>
+    <div class="bar-list">
+      <div class="bar-item">
+        <div class="b-label"><span class="badge-reel">Reels</span> — 3 publicados</div>
+        <div class="bar-track"><div class="bar-fill" style="width:67%;background:var(--blue)"></div></div>
+        <div class="b-val">~300 inter.</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label"><span class="badge-foto">Fotos</span> — varios</div>
+        <div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--border)"></div></div>
+        <div class="b-val">~150 inter.</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.6;">Con solo 3 Reels publicados, este formato concentra el 67% de todas las interacciones del período. Cada Reel genera en promedio <strong style="color:var(--fg)">100 interacciones</strong> versus las 15–20 que genera una foto estática. La diferencia no es menor: es 5 veces más impacto por pieza de contenido.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ──────────────────────────────────── -->
+<!-- 02 · FACEBOOK ORGÁNICO -->
+<!-- ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-tag">02</span>
+    <h2 class="section-title">Facebook — Orgánico</h2>
+  </div>
+  <p class="section-desc">Página Westric Argentina · 1 agosto – 7 octubre 2026 · Comparativo vs. período anterior.</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="t-label">Visualizaciones</div>
+      <div class="t-num accent">512,2 mil</div>
+      <div class="t-delta up">↑ 438,3%</div>
+      <div class="t-sub">Crecimiento exponencial</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Espectadores únicos</div>
+      <div class="t-num">171,0 mil</div>
+      <div class="t-delta up">↑ 308,5%</div>
+      <div class="t-sub">Alcance real</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Interacciones</div>
+      <div class="t-num">479</div>
+      <div class="t-delta up">↑ 215,1%</div>
+      <div class="t-sub">Likes, comentarios, shares</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Clics en enlace</div>
+      <div class="t-num green">8.400</div>
+      <div class="t-delta up">↑ 538,3%</div>
+      <div class="t-sub">Tráfico hacia la web</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Visitas a la página</div>
+      <div class="t-num">1.000</div>
+      <div class="t-delta up">↑ 80,8%</div>
+      <div class="t-sub">Visitas orgánicas</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Seguidores nuevos</div>
+      <div class="t-num">+56</div>
+      <div class="t-delta up">↑ 60,0%</div>
+      <div class="t-sub">Crecimiento neto</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Contactos totales</div>
+      <div class="t-num">34</div>
+      <div class="t-delta up">↑ 78,9%</div>
+      <div class="t-sub">Orgánicos 12 · Pagados 22</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Conversaciones</div>
+      <div class="t-num">43</div>
+      <div class="t-delta up">↑ 87,0%</div>
+      <div class="t-sub">Mensajes iniciados</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Rendimiento por formato en Facebook <small>Agosto – Septiembre 2026</small></h3>
+    <div class="bar-list">
+      <div class="bar-item">
+        <div class="b-label"><span class="badge-reel">Reels</span> — 3 publicados</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--blue)"></div></div>
+        <div class="b-val">5.232 views</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label">Historias — 25 publicadas</div>
+        <div class="bar-track"><div class="bar-fill" style="width:17%;background:var(--border)"></div></div>
+        <div class="b-val">1.116 views</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label"><span class="badge-foto">Fotos</span> — 17 publicadas</div>
+        <div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--border)"></div></div>
+        <div class="b-val">824 views</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.6;">
+      El dato habla solo: <strong style="color:var(--fg)">3 Reels generaron 5.232 views</strong>, mientras que 17 fotos generaron 824. Cada Reel rinde 6,3 veces más que una foto. Cada Historia rinde 1,3 veces más que una foto. El formato video no es una opción, es la dirección que marca el algoritmo.
+    </p>
+  </div>
+
+  <div class="callout amber">
+    <h4>Contactos: los pagados ya superan a los orgánicos</h4>
+    <p>De 34 contactos totales, <strong>22 vinieron de pauta paga (+144,4%)</strong> y 12 de forma orgánica (+20%). Esto confirma que la pauta funciona para captación directa, pero también que hay potencial de mejora en la conversación orgánica. Un proceso de respuesta más ágil (menos de 2 horas) puede mejorar ese número.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ──────────────────────────────────── -->
+<!-- 03 · TOP CONTENIDO -->
+<!-- ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-tag green">03</span>
+    <h2 class="section-title">Top Contenido — Instagram</h2>
+  </div>
+  <p class="section-desc">Publicaciones con mayor rendimiento en visualizaciones e interacciones · Agosto – Septiembre 2026.</p>
+
+  <div class="content-list">
+    <div class="content-item">
+      <div class="ci-rank">1</div>
+      <div class="ci-title">
+        "En Westric nos especializamos en el..."
+        <small>21 ago · 17:25 &nbsp;·&nbsp; <span class="badge-reel">Reel</span></small>
+      </div>
+      <div class="ci-views">7.900</div>
+      <div class="ci-inter">67 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">2</div>
+      <div class="ci-title">
+        "¿Qué tienen en común un Data Center..."
+        <small>6 ago · 14:01 &nbsp;·&nbsp; <span class="badge-reel">Reel</span> · 3h 16m watch time</small>
+      </div>
+      <div class="ci-views">4.200</div>
+      <div class="ci-inter">70 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">3</div>
+      <div class="ci-title">
+        "¡Westric dice presente en la Expo Frío-Calor!"
+        <small>17 ago · 17:00 &nbsp;·&nbsp; <span class="badge-foto">Carrusel</span></small>
+      </div>
+      <div class="ci-views">2.200</div>
+      <div class="ci-inter">39 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">4</div>
+      <div class="ci-title">
+        "En Westric nos especializamos en el..." (segunda versión)
+        <small>13 ago · 18:01 &nbsp;·&nbsp; <span class="badge-reel">Reel</span></small>
+      </div>
+      <div class="ci-views">1.500</div>
+      <div class="ci-inter">49 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">5</div>
+      <div class="ci-title">
+        Ingeniero a cámara — recorrido en planta (1:13)
+        <small>10 sep · 11:07 &nbsp;·&nbsp; <span class="badge-reel">Reel</span> · Superó promedio típico</small>
+      </div>
+      <div class="ci-views">1.300</div>
+      <div class="ci-inter">4 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">6</div>
+      <div class="ci-title">
+        "Los sonidos de Westric: cuando la tecnología..."
+        <small>11 sep · 17:23 &nbsp;·&nbsp; <span class="badge-reel">Reel</span></small>
+      </div>
+      <div class="ci-views">1.100</div>
+      <div class="ci-inter">41 inter.</div>
+    </div>
+    <div class="content-item">
+      <div class="ci-rank">7</div>
+      <div class="ci-title">
+        "¿Qué significa realmente fabricar en Argentina?"
+        <small>31 ago · 17:35 &nbsp;·&nbsp; <span class="badge-reel">Reel</span></small>
+      </div>
+      <div class="ci-views">1.100</div>
+      <div class="ci-inter">18 inter.</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:16px;">
+    <h4>El patrón es claro</h4>
+    <p>De los 7 contenidos con mejor rendimiento, <strong>6 son Reels</strong>. La única excepción es la cobertura de la Expo Frío-Calor, que tuvo un impulso contextual puntual. Los videos de planta con cara humana (ingeniero en cámara) y los videos con tensión narrativa ("¿Qué tienen en común un Data Center, un hospital y una farmacéutica?") son los que más tiempo de reproducción y más interacciones generan.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ──────────────────────────────────── -->
+<!-- 04 · VIDEO INSIGHT (destacado) -->
+<!-- ──────────────────────────────────── -->
+<div class="video-insight">
+  <div class="vi-header">
+    <div class="vi-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <div>
+      <h2>El video es el formato<br><span>que Westric necesita escalar.</span></h2>
+    </div>
+  </div>
+  <p class="vi-body">
+    El período agosto–septiembre confirma lo que los datos venían señalando: <strong>los Reels son el formato con mejor retorno por pieza publicada</strong>, y al mismo tiempo, el formato al que menos consistencia le estamos dando. Publicamos 3 Reels en el período y generaron más visualizaciones que 17 fotos juntas. El algoritmo de Meta, tanto en Instagram como en Facebook, prioriza el video de forma activa. Cada semana sin un Reel es una semana en la que perdemos distribución orgánica gratuita.
+  </p>
+  <div class="vi-stats">
+    <div class="vi-stat">
+      <div class="k">Reels publicados</div>
+      <div class="v">3</div>
+      <div class="s">Ago – Sep 2026</div>
+    </div>
+    <div class="vi-stat">
+      <div class="k">Views por Reel (prom.)</div>
+      <div class="v">~1.700</div>
+      <div class="s">vs. ~48 por foto</div>
+    </div>
+    <div class="vi-stat">
+      <div class="k">Watch time · Reel destac.</div>
+      <div class="v">3h 16m</div>
+      <div class="s">1.048 views · 49 inter.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────── -->
+<!-- 05 · PAID MEDIA SEPTIEMBRE -->
+<!-- ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-tag amber">05</span>
+    <h2 class="section-title">Paid Media — Septiembre 2026</h2>
+  </div>
+  <p class="section-desc">Meta Ads · Google Ads · LinkedIn Ads · Fuente: plataformas propias + GA4 · Moneda: ARS.</p>
+
+  <div class="paid-header">
+    <div class="ph-title">Resumen de inversión y resultados · Septiembre 2026</div>
+    <div class="paid-kpis">
+      <div class="paid-kpi">
+        <div class="k">Inversión total</div>
+        <div class="v">$1.056.905</div>
+        <div class="d up">▲ +5,4% vs. agosto</div>
+      </div>
+      <div class="paid-kpi">
+        <div class="k">Leads comerciales</div>
+        <div class="v">11</div>
+        <div class="d neu">■ Sin variación</div>
+      </div>
+      <div class="paid-kpi">
+        <div class="k">CPL blended</div>
+        <div class="v">$70.307</div>
+        <div class="d up">▼ -2,7% vs. agosto</div>
+      </div>
+      <div class="paid-kpi">
+        <div class="k">Leads capacitación</div>
+        <div class="v">178</div>
+        <div class="d up">▲ Nuevo en el mes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tiles tiles-3">
+    <div class="tile">
+      <div class="t-label">Meta Ads total</div>
+      <div class="t-num accent">$341.203</div>
+      <div class="t-delta up">↑ +64,2%</div>
+      <div class="t-sub">3 campañas activas</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">Google Ads</div>
+      <div class="t-num">$291.042</div>
+      <div class="t-delta down">↓ -29,4%</div>
+      <div class="t-sub">Precisión + Confort</div>
+    </div>
+    <div class="tile">
+      <div class="t-label">LinkedIn Ads</div>
+      <div class="t-num">$424.660</div>
+      <div class="t-delta up">↑ +8,1%</div>
+      <div class="t-sub">4 conversiones</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Costo por conversión por canal <small>Septiembre · variación vs. agosto</small></h3>
+    <div class="bar-list">
+      <div class="bar-item">
+        <div class="b-label">Meta · Conversión Web</div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%;background:var(--green)"></div></div>
+        <div class="b-val">$28.836 · 2 conv.</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label">Google · Precisión</div>
+        <div class="bar-track"><div class="bar-fill" style="width:37%;background:var(--blue)"></div></div>
+        <div class="b-val">$42.303 · 4 conv.</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label">LinkedIn · Conv. Web</div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:var(--amber)"></div></div>
+        <div class="b-val">$106.165 · 4 conv.</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label">Google · Confort</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--border)"></div></div>
+        <div class="b-val">$114.598 · 1 conv.</div>
+      </div>
+      <div class="bar-item">
+        <div class="b-label">Meta · Capacitación</div>
+        <div class="bar-track"><div class="bar-fill" style="width:0.4%;background:var(--cyan)"></div></div>
+        <div class="b-val">$474 · 178 leads</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Canal / Campaña</th>
+          <th>Inversión</th>
+          <th>Leads</th>
+          <th>Costo/Lead</th>
+          <th>Var. CPL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Meta · Tráfico al perfil</td>
+          <td>$199.199</td>
+          <td>4.719 visitas</td>
+          <td>$42,21/visita</td>
+          <td><span class="dl-down">↑ +25,7%</span></td>
+        </tr>
+        <tr>
+          <td>Meta · Capacitación (leads)</td>
+          <td>$84.331</td>
+          <td>178</td>
+          <td>$473,77</td>
+          <td><span class="dl-neu">Nuevo</span></td>
+        </tr>
+        <tr>
+          <td>Meta · Conversión Web</td>
+          <td>$57.673</td>
+          <td>2</td>
+          <td>$28.836</td>
+          <td><span class="dl-neu">Nuevo</span></td>
+        </tr>
+        <tr>
+          <td>Google · Precisión</td>
+          <td>$169.211</td>
+          <td>4</td>
+          <td>$42.303</td>
+          <td><span class="dl-up">↓ -7,3%</span></td>
+        </tr>
+        <tr>
+          <td>Google · Confort</td>
+          <td>$114.598</td>
+          <td>1</td>
+          <td>$114.598</td>
+          <td><span class="dl-down">↑ +38,9%</span></td>
+        </tr>
+        <tr>
+          <td>LinkedIn · Conversión Web</td>
+          <td>$424.660</td>
+          <td>4</td>
+          <td>$106.165</td>
+          <td><span class="dl-up">↓ -18,9%</span></td>
+        </tr>
+        <tr class="total">
+          <td>Total comercial blended</td>
+          <td>$1.056.905</td>
+          <td>11</td>
+          <td>$70.307</td>
+          <td><span class="dl-up">↓ -2,7%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green">
+    <h4>Hitos de septiembre en pauta</h4>
+    <p><strong>Meta abre un tercer frente:</strong> además de tráfico al perfil, en septiembre se activaron la campaña de capacitación (178 leads a $473,77 CPL) y la campaña de conversión web, que en su primer mes generó 2 leads comerciales al CPL más bajo de todos los canales ($28.836). Son datos de muestra todavía, pero la dirección es positiva.</p>
+    <p><strong>LinkedIn mejora su eficiencia:</strong> el costo por conversión bajó un 18,9% (de $130.929 a $106.165), con 4 conversiones por visualización (view-through). Eso muestra influencia en el ciclo B2B aunque el clic directo no siempre se registre.</p>
+  </div>
+
+  <div class="panel">
+    <h3>GA4 — Comportamiento en el sitio <small>Septiembre 2026</small></h3>
+    <div class="tiles tiles-3" style="margin-bottom:0">
+      <div class="tile">
+        <div class="t-label">Sesiones totales</div>
+        <div class="t-num green">3.801</div>
+        <div class="t-delta up">↑ +15,7%</div>
+        <div class="t-sub">vs. 3.286 en agosto</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Tasa de interacción</div>
+        <div class="t-num">55,33%</div>
+        <div class="t-delta up">↑ +3,38 pp</div>
+        <div class="t-sub">Calidad de la visita en alza</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Búsqueda orgánica</div>
+        <div class="t-num">1.530</div>
+        <div class="t-delta up">↑ +10,5%</div>
+        <div class="t-sub">40,3% del total · 67% interacc.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ──────────────────────────────────── -->
+<!-- 06 · CONCLUSIONES Y MEJORAS -->
+<!-- ──────────────────────────────────── -->
+<div class="section">
+  <div class="section-label">
+    <span class="section-tag">06</span>
+    <h2 class="section-title">Conclusiones y Próximos Pasos</h2>
+  </div>
+  <p class="section-desc">Lectura general del período y acciones recomendadas para octubre en adelante.</p>
+
+  <div class="callout green" style="margin-bottom:28px;">
+    <h4>El período en una línea</h4>
+    <p>Agosto y septiembre son los mejores meses de Westric en redes desde que comenzamos. Las interacciones crecieron +668%, las visitas al perfil +146%, el orgánico puro casi se duplicó y la pauta bajó el CPL blended por segundo mes consecutivo. La marca empezó a ser visible. Ahora el desafío es sostener y escalar lo que funciona.</p>
+  </div>
+
+  <div class="conclu-grid">
+    <div class="conclu-card">
+      <div class="cc-num">01</div>
+      <h4>Producir al menos 1 Reel por semana</h4>
+      <p>Es la acción de mayor impacto disponible hoy. Con 3 Reels generamos más views que con 17 fotos. <strong>El costo de no producir video es alto: perdemos distribución orgánica gratuita en cada semana que no publicamos.</strong> Formato recomendado: 45–60 seg, planta o cara humana, narrativa de problema–solución.</p>
+    </div>
+    <div class="conclu-card">
+      <div class="cc-num">02</div>
+      <h4>Más ingeniero a cámara</h4>
+      <p>El Reel del ingeniero en planta superó el promedio típico de visualizaciones y generó 49 interacciones. <strong>La cara y la voz de quien sabe generan credibilidad B2B que ninguna gráfica puede reemplazar.</strong> Se recomienda 1 video de este tipo por mes como mínimo.</p>
+    </div>
+    <div class="conclu-card">
+      <div class="cc-num">03</div>
+      <h4>Redistribuir presupuesto de LinkedIn a Meta</h4>
+      <p>LinkedIn tiene el CPL más alto ($106.165) y Meta Conversión Web arrancó con el más bajo ($28.836). <strong>Redirigir parte del presupuesto diario de LinkedIn hacia Meta Conversión Web puede bajar el CPL blended en octubre de forma significativa.</strong> Muestra todavía acotada, requiere validación un ciclo más.</p>
+    </div>
+    <div class="conclu-card">
+      <div class="cc-num">04</div>
+      <h4>Responder comentarios dentro de las 2 horas</h4>
+      <p>El índice de respuesta orgánica sigue bajo. <strong>Responder rápido aumenta el alcance orgánico de la publicación en el algoritmo de Meta.</strong> Se recomienda asignar una persona responsable de monitorear comentarios en el horario pico (18–21 hs) los días de publicación.</p>
+    </div>
+    <div class="conclu-card">
+      <div class="cc-num">05</div>
+      <h4>Activar landings dedicadas por industria en Google</h4>
+      <p>Los grupos de anuncios de Data Centers, Telecom, Oil &amp; Gas y Farmacéutica casi no reciben impresiones. <strong>Crear landings específicas por sector puede multiplicar por 3–5x la tasa de conversión de Google Precisión</strong>, que ya es el canal con mejor CPL comercial después de Meta.</p>
+    </div>
+    <div class="conclu-card">
+      <div class="cc-num">06</div>
+      <h4>Consolidar la medición cross-canal</h4>
+      <p>Los leads de capacitación se deben cruzar contra los inscriptos confirmados por email para conocer la tasa de conversión real del formulario al pago. <strong>Ese dato cambia completamente la lectura del CPL de capacitación</strong> y permite decidir si ampliar o mantener la audiencia.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────── -->
+<!-- FOOTER -->
+<!-- ──────────────────────────────────── -->
+<div class="report-footer">
+  <div class="footer-brand">WESTRIC MULTICONTROL S.A.</div>
+  <div class="footer-note">Reporte de performance · Agosto–Septiembre 2026 · Uso interno · Elaborado por Estrategia de Contenidos<br>Fuentes: Meta Business Suite · Google Ads · LinkedIn Campaign Manager · Google Analytics 4</div>
+</div>
+
+</div>
+
+</body></html>
